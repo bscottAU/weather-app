@@ -109,3 +109,9 @@ ul {
 .card-text {
   font-size: 15px;
 }
+
+.author {
+  font-family: monospace;
+  font-size: 10px;
+  color: #90a4ae;
+}
