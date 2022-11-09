@@ -4,11 +4,162 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css" />
-    <title>☀️Weather</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/6886e30dd8.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Weather App</title>
   </head>
   <body>
-    <h1>Hello</h1>
-    <script src="src/script.js"></script>
+    <div class="container">
+      <form id="location-search">
+        <div class="row">
+          <div class="col-10">
+            <input
+              class="form-control"
+              type="search"
+              placeholder="Search for a city..."
+              id="search-location"
+              autofocus="on"
+              autocomplete="off"
+            />
+          </div>
+          <div class="col-2">
+            <input
+              type="submit"
+              class="form-control"
+              value="search"
+              id="search-location"
+            />
+          </div>
+        </div>
+      </form>
+      <div class="weather-app">
+        <div class="row">
+          <div class="col-6 weather-today-highlights">
+            <h1>17°</h1>
+            <div class="outlook">
+              <span id="temperature-high"> high 20° </span>
+              <span id="temperature-low">| low 7°</span>
+              <div>
+                <span class="celsius" id="celsius">
+                  <a href="#" id="celsius-link">C | </a>
+                </span>
+                <span class="fahrenheit" id="fahrenheit">
+                  <a href="#" id="fahrenheit-link">F </a>
+                </span>
+              </div>
+              <h4>Thunderstorms</h4>
+            </div>
+          </div>
+          <div class="col-6">
+            <i class="fa-solid fa-cloud-bolt"></i>
+            <h2 id="location">Sydney</h2>
+            <h3 id="current-date"></h3>
+            <h5>Last updated: <span id="last-update"></span></h5>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="current-location"
+              style="
+                --bs-btn-padding-y: 4px;
+                --bs-btn-padding-x: 8px;
+                --bs-btn-font-size: 9px;
+              "
+            >
+              Current location
+            </button>
+          </div>
+        </div>
+        <div class="row weather-elements">
+          <div class="col-3 forecast-elements">
+            <ul>
+              <li>Precipitation</li>
+              <li>Humidity</li>
+              <li>UV index</li>
+              <li>Wind speed</li>
+            </ul>
+          </div>
+          <div class="col-9">
+            <ul id="forecast-data">
+              <li id="precipitation">100%</li>
+              <li id="humidity">95%</li>
+              <li id="uv-index">5</li>
+              <li id="wind-speed">9</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row forecast-five-day">
+        <div class="col five-card-column">
+          <div class="card day-one, text-center">
+            <div class="card-body">
+              <h5 class="card-title">☀️</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Fri</h6>
+              <p class="card-text">20° / 7°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col five-card-column">
+          <div class="card day-two, text-center">
+            <div class="card-body">
+              <h5 class="card-title">☀️</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Sat</h6>
+              <p class="card-text">20° / 7°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col five-card-column">
+          <div class="card day-three, text-center">
+            <div class="card-body">
+              <h5 class="card-title">⚡</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Sun</h6>
+              <p class="card-text">20° / 7°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col five-card-column">
+          <div class="card day-four, text-center">
+            <div class="card-body">
+              <h5 class="card-title">⛈️</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Mon</h6>
+              <p class="card-text">20° / 7°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col five-card-column">
+          <div class="card day-five, text-center">
+            <div class="card-body">
+              <h5 class="card-title">⛅</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Tue</h6>
+              <p class="card-text">20° / 7°</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row music-link">
+        <div class="text-center">
+          <a
+            href="https://open.spotify.com/"
+            alt
+            class="btn btn-success"
+            target="blank"
+            title="Open spotify"
+            class="open-spotify"
+          >
+            🎶 Find tunes to match the mood
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
   </body>
 </html>
