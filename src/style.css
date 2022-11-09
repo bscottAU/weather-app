@@ -110,8 +110,10 @@ ul {
   font-size: 15px;
 }
 
-.author {
+footer {
   font-family: monospace;
   font-size: 10px;
   color: #90a4ae;
+  margin: 30px 0;
+  text-align: center;
 }
