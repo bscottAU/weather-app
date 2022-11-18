@@ -52,27 +52,6 @@ currentDate.innerHTML = formatCurrentDate(now);
 let currentTime = document.querySelector("span#last-update");
 currentTime.innerHTML = formatCurrentTime(now);
 
-//Bonus Feature
-//Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
-
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("h1");
-  temperatureElement.innerHTML = "63°";
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperautreElement = document.querySelector("h1");
-  temperautreElement.innerHTML = "17°";
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
-
 function searchCity(event) {
   event.preventDefault();
   let locationInput = document.querySelector("input#search-location");
@@ -85,43 +64,42 @@ function searchCity(event) {
   }
 }
 
-let searchForm = document.querySelector("form#location-search");
-searchForm.addEventListener("submit", seekCity);
-
-//week 5 - add search engine and current location button
-//search engine
-
 function showWeather(response) {
   console.log(response.data);
-  let temperature = Math.round(response.data.main.temp);
+
+  celsiusTemperature = response.data.main.temp;
+
+  let temperature = Math.round(celsiusTemperature);
   let currentTemperature = document.querySelector("h1");
   currentTemperature.innerHTML = `${temperature}°`;
 
   let city = document.querySelector("h2#location");
   city.innerHTML = response.data.name;
-  
+
   let maxTemp = Math.round(response.data.main.temp_max);
   let maxTempToday = document.querySelector("#temperature-high");
   maxTempToday.innerHTML = `high ${maxTemp}° | `;
-  
+
   let minTemp = Math.round(response.data.main.temp_min);
   let minTempToday = document.querySelector("#temperature-low");
   minTempToday.innerHTML = `low ${minTemp}°`;
-  
+
   let currentConditions = document.querySelector("h4");
   currentConditions.innerHTML = `${response.data.weather[0].description}`;
-  
+
   let currentHumidity = document.querySelector("#humidity");
   currentHumidity.innerHTML = `${response.data.main.humidity}%`;
-  
+
   let windSpeed = Math.round(response.data.wind.speed);
   let currentWindSpeed = document.querySelector("#wind-speed");
   currentWindSpeed.innerHTML = `${windSpeed} m/s`;
-  
-let weatherImage = (response.data.weather[0].icon);
-  let weatherIcon = document.querySelector("#weather-icon");
-  weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${weatherImage}@2x.png`);
 
+  let weatherImage = response.data.weather[0].icon;
+  let weatherIcon = document.querySelector("#weather-icon");
+  weatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${weatherImage}@2x.png`
+  );
 }
 
 function findCity(city) {
@@ -152,5 +130,38 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+//Celsius and Fahrenheit conversion
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+  celsiusLink.classList.remove("active-link");
+  fahrenheitLink.classList.add("active-link");
+  let temperatureElement = document.querySelector("h1");
+  temperatureElement.innerHTML = `${fahrenheitTemperature}°`;
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let temperautreElement = document.querySelector("h1");
+  fahrenheitLink.classList.remove("active-link");
+  celsiusLink.classList.add("active-link");
+  let celsiusTemperatureDisplay = Math.round(celsiusTemperature);
+  temperautreElement.innerHTML = `${celsiusTemperatureDisplay}°`;
+}
+
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
+
+let searchForm = document.querySelector("form#location-search");
+searchForm.addEventListener("submit", seekCity);
+
 let buttonCurrentLocation = document.querySelector("button#current-location");
 buttonCurrentLocation.addEventListener("click", getCurrentPosition);
+
+findCity("Sydney");

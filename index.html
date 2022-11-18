@@ -49,9 +49,12 @@
             <div class="outlook">
               <span id="temperature-high"> high 20° </span>
               <span id="temperature-low">| low 7°</span>
-              <div>
+              <div class="unit-conversion">
                 <span class="celsius" id="celsius">
-                  <a href="#" id="celsius-link">C | </a>
+                  <a href="#" id="celsius-link" class="active-link"
+                    >C
+                  </a>
+                  |
                 </span>
                 <span class="fahrenheit" id="fahrenheit">
                   <a href="#" id="fahrenheit-link">F </a>
@@ -62,7 +65,7 @@
           </div>
           <div class="col-6">
             <img src="" alt="" id="weather-icon" class="current-weather-icon" />
-            <h2 id="location">Sydney </h2>
+            <h2 id="location">Sydney</h2>
             <h3 id="current-date"></h3>
             <h5>Last updated: <span id="last-update"></span></h5>
             <button

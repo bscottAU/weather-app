@@ -29,6 +29,9 @@ h4 {
   margin: 0;
   font-size: 16px;
   line-height: 1.5;
+}
+
+h4:first-letter {
   text-transform: capitalize;
 }
 
@@ -112,6 +115,16 @@ ul {
 
 .current-weather-icon {
   max-height: 48px;
+}
+
+a {
+  text-decoration: none;
+  cursor: default;
+  color: #59606d;
+}
+
+.active-link {
+  color: #1ccee8;
 }
 
 footer {
