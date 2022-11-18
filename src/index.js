@@ -65,8 +65,6 @@ function searchCity(event) {
 }
 
 function showWeather(response) {
-  console.log(response.data);
-
   celsiusTemperature = response.data.main.temp;
 
   let temperature = Math.round(celsiusTemperature);
@@ -135,8 +133,8 @@ function getCurrentPosition() {
 function convertToFahrenheit(event) {
   event.preventDefault();
   let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
-  celsiusLink.classList.remove("active-link");
-  fahrenheitLink.classList.add("active-link");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let temperatureElement = document.querySelector("h1");
   temperatureElement.innerHTML = `${fahrenheitTemperature}°`;
 }
@@ -144,8 +142,8 @@ function convertToFahrenheit(event) {
 function convertToCelsius(event) {
   event.preventDefault();
   let temperautreElement = document.querySelector("h1");
-  fahrenheitLink.classList.remove("active-link");
-  celsiusLink.classList.add("active-link");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   let celsiusTemperatureDisplay = Math.round(celsiusTemperature);
   temperautreElement.innerHTML = `${celsiusTemperatureDisplay}°`;
 }
