@@ -72,7 +72,7 @@ ul {
   padding: 0;
   color: #59606d;
   border-radius: none;
-  max-width: 650px;
+  max-width: 600px;
 }
 
 .weather-today {
@@ -108,6 +108,10 @@ ul {
 
 .card-text {
   font-size: 15px;
+}
+
+.current-weather-icon {
+  max-height: 48px;
 }
 
 footer {
