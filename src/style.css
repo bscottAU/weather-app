@@ -10,8 +10,7 @@ h1 {
 
 h2,
 h3,
-h4,
-h5 {
+h4 {
   color: #afafaf;
 }
 
@@ -22,13 +21,14 @@ h2 {
   padding: 0 auto;
 }
 h3 {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 h4 {
   margin: 0;
   font-size: 16px;
   line-height: 1.5;
+  padding-bottom: 15px;
 }
 
 h4:first-letter {
@@ -36,8 +36,9 @@ h4:first-letter {
 }
 
 h5 {
-  font-size: 12px;
+  font-size: 16px;
 }
+
 form {
   padding-bottom: 20px;
   padding-top: 20px;
@@ -53,6 +54,12 @@ ul {
   padding: 10px 0 0 15px;
   font-size: 13px;
   color: #afafaf;
+}
+
+a {
+  text-decoration: none;
+  cursor: default;
+  color: #59606d;
 }
 
 .weather-today-highlights {
@@ -100,32 +107,36 @@ ul {
   margin: 15px 0 40px;
   padding: 5px 15px;
 }
-.five-card-column {
+.forecast {
   padding: 10px 3px;
   border-radius: none;
-}
-
-.card-body {
-  background-color: none;
-}
-
-.card-text {
-  font-size: 15px;
 }
 
 .current-weather-icon {
   max-height: 48px;
 }
 
-a {
-  text-decoration: none;
-  cursor: default;
-  color: #59606d;
-}
-
 .active {
   text-decoration: none;
   color: #1ccee8;
+}
+
+.card-body {
+  background-color: #f5f5f5;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.weather-forecast-date {
+  color: #6c757d;
+  font-size: 16px;
+}
+
+.weather-forecast-range {
+  line-height: 3;
+}
+.weather-forecast-high {
+  font-weight: 700;
 }
 
 footer {

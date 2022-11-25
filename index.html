@@ -51,9 +51,7 @@
               <span id="temperature-low">| low 7°</span>
               <div class="unit-conversion">
                 <span class="celsius" id="celsius">
-                  <a href="#" id="celsius-link" class="active"
-                    >C
-                  </a>
+                  <a href="#" id="celsius-link" class="active">C </a>
                   |
                 </span>
                 <span class="fahrenheit" id="fahrenheit">
@@ -75,7 +73,7 @@
               style="
                 --bs-btn-padding-y: 4px;
                 --bs-btn-padding-x: 8px;
-                --bs-btn-font-size: 9px;
+                --bs-btn-font-size: 12px;
               "
             >
               Current location
@@ -97,53 +95,29 @@
           </div>
         </div>
       </div>
+      <div class="weather-forecast" id="weather-forecast">
       <div class="row forecast-five-day">
-        <div class="col five-card-column">
-          <div class="card day-one, text-center">
-            <div class="card-body">
-              <h5 class="card-title">☀️</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Fri</h6>
-              <p class="card-text">20° / 7°</p>
-            </div>
-          </div>
-        </div>
-        <div class="col five-card-column">
-          <div class="card day-two, text-center">
-            <div class="card-body">
-              <h5 class="card-title">☀️</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Sat</h6>
-              <p class="card-text">20° / 7°</p>
-            </div>
-          </div>
-        </div>
-        <div class="col five-card-column">
-          <div class="card day-three, text-center">
-            <div class="card-body">
-              <h5 class="card-title">⚡</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Sun</h6>
-              <p class="card-text">20° / 7°</p>
-            </div>
-          </div>
-        </div>
-        <div class="col five-card-column">
-          <div class="card day-four, text-center">
-            <div class="card-body">
-              <h5 class="card-title">⛈️</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Mon</h6>
-              <p class="card-text">20° / 7°</p>
-            </div>
-          </div>
-        </div>
-        <div class="col five-card-column">
-          <div class="card day-five, text-center">
-            <div class="card-body">
-              <h5 class="card-title">⛅</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Tue</h6>
-              <p class="card-text">20° / 7°</p>
+        <div class="col-2 forecast">
+          <div class="card-body">
+            <img
+              src="http://openweathermap.org/img/wn/50d@2x.png"
+              alt=""
+              id="forecast-weather-icon"
+              class="forecast-weather-icon"
+              width="40px"
+            />
+            <div class="weather-forecast-date">Fri</div>
+            <div class="weather-forecast-range">
+              <span class="weather-forecast-high" id="weather-forecast-high"
+                >20°</span
+              >
+              <span class="weather-forecast-low" id="weather-forecast-low"></span>/  7°</span
+              >
             </div>
           </div>
         </div>
       </div>
+      </div>  
       <div class="row music-link">
         <div class="text-center">
           <a
