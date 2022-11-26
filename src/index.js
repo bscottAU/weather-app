@@ -31,6 +31,34 @@ function formatCurrentDate(today) {
   return currentDay;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+  let forecastHTML = `<div class="row row-cols-5 forecast-five-day">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+   <div class="col forecast">
+    <div class="card-body">
+    <img
+    src="http://openweathermap.org/img/wn/50d@2x.png"
+     alt=""
+      id="forecast-weather-icon"
+     class="forecast-weather-icon"
+     width="40px" />
+    <div class="weather-forecast-date">${day}</div>
+      <div class="weather-forecast-range">
+       <span class="weather-forecast-high" id="weather-forecast-high" >20°</span >
+        <span class="weather-forecast-low" id="weather-forecast-low"></span>/  7°</span>
+       </div>
+       </div>
+      </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function formatCurrentTime(today) {
   let hours = now.getHours();
   if (hours < 10) {
@@ -98,6 +126,8 @@ function showWeather(response) {
     "src",
     `http://openweathermap.org/img/wn/${weatherImage}@2x.png`
   );
+
+  displayForecast();
 }
 
 function findCity(city) {

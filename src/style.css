@@ -100,6 +100,17 @@ a {
   border-color: #70acb1;
   padding: 15px 15px;
 }
+.current-weather-icon {
+  max-height: 48px;
+}
+.active {
+  text-decoration: none;
+  color: #1ccee8;
+}
+
+.weather-forecast {
+}
+
 .forecast-five-day {
   border-style: solid;
   border-radius: 10px;
@@ -108,30 +119,19 @@ a {
   padding: 5px 15px;
 }
 .forecast {
-  padding: 10px 3px;
+  padding: 3px 6px;
   border-radius: none;
+  margin: 5px 0;
 }
-
-.current-weather-icon {
-  max-height: 48px;
-}
-
-.active {
-  text-decoration: none;
-  color: #1ccee8;
-}
-
 .card-body {
-  background-color: #f5f5f5;
+  background-color: #fbfbfb;
   text-align: center;
   border-radius: 10px;
 }
-
 .weather-forecast-date {
   color: #6c757d;
   font-size: 16px;
 }
-
 .weather-forecast-range {
   line-height: 3;
 }
