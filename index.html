@@ -47,8 +47,8 @@
           <div class="col-6 weather-today-highlights">
             <h1>17°</h1>
             <div class="outlook">
-              <span id="temperature-high"> high 20° </span>
-              <span id="temperature-low">| low 7°</span>
+              <span id="temperature-high"></span>
+              <span id="temperature-low"></span>
               <div class="unit-conversion">
                 <span class="celsius" id="celsius">
                   <a href="#" id="celsius-link" class="active">C </a>
@@ -63,7 +63,10 @@
           </div>
           <div class="col-6">
             <img src="" alt="" id="weather-icon" class="current-weather-icon" />
-            <h2 id="location">Sydney</h2>
+            <h2>
+              <span id="location">Sydney, </span
+              ><span id="country"> Australia</span>
+            </h2>
             <h3 id="current-date"></h3>
             <h5>Last updated: <span id="last-update"></span></h5>
             <button
@@ -83,20 +86,21 @@
         <div class="row weather-elements">
           <div class="col-3 forecast-elements">
             <ul>
+              <li>Feels like</li>
               <li>Humidity</li>
               <li>Wind speed</li>
             </ul>
           </div>
           <div class="col-9">
             <ul id="forecast-data">
+              <li id="feels-like"></li>
               <li id="humidity"></li>
               <li id="wind-speed"></li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="weather-forecast" id="weather-forecast">
-      </div>  
+      <div class="weather-forecast" id="weather-forecast"></div>
       <div class="row music-link">
         <div class="text-center">
           <a
