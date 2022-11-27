@@ -133,7 +133,7 @@ function showWeather(response) {
 
   let feelsLike = Math.round(response.data.temperature.feels_like);
   let currentFeels = document.querySelector("#feels-like");
-  currentFeels.innerHTML = `${feelsLike}°`;
+  currentFeels.innerHTML = `${feelsLike}°C`;
 
   let currentHumidity = document.querySelector("#humidity");
   currentHumidity.innerHTML = `${response.data.temperature.humidity}%`;
