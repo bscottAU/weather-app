@@ -52,27 +52,42 @@ currentDate.innerHTML = formatCurrentDate(now);
 let currentTime = document.querySelector("span#last-update");
 currentTime.innerHTML = formatCurrentTime(now);
 
+function formatforecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data);
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = `<div class="row row-cols-5 forecast-five-day">`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5)
+      forecastHTML =
+        forecastHTML +
+        `
    <div class="col forecast">
     <div class="card-body">
     <img
-    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
-     alt=""
+    src="${forecastDay.condition.icon_url}"
+     alt="${forecastDay.condition.icon}"
       id="forecast-weather-icon"
      class="forecast-weather-icon"
      width="40px" />
-    <div class="weather-forecast-date">${day}</div>
+    <div class="weather-forecast-date">${formatforecastDay(
+      forecastDay.time
+    )}</div>
       <div class="weather-forecast-range">
-       <span class="weather-forecast-high" id="weather-forecast-high" >20°</span >
-        <span class="weather-forecast-low" id="weather-forecast-low"></span>/  7°</span>
+       <span class="weather-forecast-high" id="weather-forecast-high" >${Math.round(
+         forecastDay.temperature.maximum
+       )}°</span >
+        <span class="weather-forecast-low" id="weather-forecast-low"></span>/  ${Math.round(
+          forecastDay.temperature.minimum
+        )}°</span>
        </div>
        </div>
       </div>`;
